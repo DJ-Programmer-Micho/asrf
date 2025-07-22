@@ -1,0 +1,59 @@
+"""
+Validate Kurdish Sorani ASR dataset for training readiness.
+"""
+
+import pandas as pd
+from pathlib import Path
+from normalizer import KurdishSoraniNormalizer
+import json
+
+
+def validate_metadata(csv_path, vocab_path=None):
+    df = pd.read_csv(csv_path)
+    normalizer = KurdishSoraniNormalizer()
+
+    issues = {
+        "missing_audio": [],
+        "empty_transcript": [],
+        "invalid_chars": [],
+    }
+
+    vocab = None
+    if vocab_path and Path(vocab_path).exists():
+        with open(vocab_path, "r", encoding="utf-8") as f:
+            vocab = json.load(f)
+
+    for _, row in df.iterrows():
+        audio_path = row["path"]
+        transcript = row["transcript"]
+
+        if not Path(audio_path).exists():
+            issues["missing_audio"].append(audio_path)
+
+        if not isinstance(transcript, str) or len(transcript.strip()) == 0:
+            issues["empty_transcript"].append(audio_path)
+
+        stats = normalizer.validate_text(transcript)
+        if not stats["is_valid"]:
+            issues["invalid_chars"].append({
+                "path": audio_path,
+                "chars": stats["invalid_chars"]
+            })
+
+    print("Validation Summary:")
+    print(f"- Missing audio files: {len(issues['missing_audio'])}")
+    print(f"- Empty transcripts: {len(issues['empty_transcript'])}")
+    print(f"- Transcripts with invalid characters: {len(issues['invalid_chars'])}")
+
+    return issues
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--csv", type=str, required=True)
+    parser.add_argument("--vocab", type=str, default="./dataset/vocab/vocab.json")
+
+    args = parser.parse_args()
+    validate_metadata(args.csv, args.vocab)
