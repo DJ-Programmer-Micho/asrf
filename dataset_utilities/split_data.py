@@ -359,10 +359,14 @@ class DatasetSplitter:
 
 def main():
     parser = argparse.ArgumentParser(description='Split Kurdish Sorani ASR dataset')
-    parser.add_argument('--input_csv', type=str, required=True,
+    parser.add_argument('--input_csv', type=str, default='dataset/preprocessed_data/metadata.csv',
                        help='Input CSV file with dataset')
-    parser.add_argument('--output_dir', type=str, required=True,
+    # parser.add_argument('--input_csv', type=str, required=True,
+    #                    help='Input CSV file with dataset')
+    parser.add_argument('--output_dir', type=str, default='dataset/prepared_splits',
                        help='Output directory for split files')
+    # parser.add_argument('--output_dir', type=str, required=True,
+    #                    help='Output directory for split files')
     parser.add_argument('--train_ratio', type=float, default=0.8,
                        help='Training set ratio (default: 0.8)')
     parser.add_argument('--val_ratio', type=float, default=0.1,
