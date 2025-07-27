@@ -200,9 +200,9 @@ class KurdishVocabularyGenerator:
 
 def main():
     parser = argparse.ArgumentParser(description='Generate Kurdish Sorani vocabulary for ASR')
-    parser.add_argument('--csv_path', type=str, required=True,
+    parser.add_argument('--csv_path', type=str, default='dataset/preprocessed_data/metadata.csv',
                        help='Path to CSV file with transcripts')
-    parser.add_argument('--output_path', type=str, default='../dataset/vocab/vocab.json',
+    parser.add_argument('--output_path', type=str, default='dataset/vocab/vocab.json',
                        help='Output path for vocabulary JSON')
     parser.add_argument('--transcript_column', type=str, default='transcript',
                        help='Name of transcript column in CSV')
@@ -269,7 +269,7 @@ if __name__ == "__main__":
         generator.print_vocabulary_stats(vocab)
         
         # Save sample vocab
-        output_path = "../dataset/vocab/sample_vocab.json"
+        output_path = "dataset/vocab/sample_vocab.json"
         generator.save_vocabulary(vocab, output_path)
     else:
         main()
