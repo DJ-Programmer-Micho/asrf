@@ -5,6 +5,7 @@ Validate Kurdish Sorani ASR dataset for training readiness.
 import pandas as pd
 from pathlib import Path
 from normalizer import KurdishSoraniNormalizer
+from utils.config_loader import load_config
 import json
 
 
@@ -50,10 +51,13 @@ def validate_metadata(csv_path=None, vocab_path=None):
 
 if __name__ == "__main__":
     import argparse
+    config = load_config()
+    csv_path = config["dataset"]["preprocessed_data_path"] + "/metadata.csv"
+    vocab_path = config["dataset"]["vocab_path"]
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--csv", type=str, default="dataset/preprocessed_data/metadata.csv")
-    parser.add_argument("--vocab", type=str, default="dataset/vocab/sample_vocab.json")
+    parser.add_argument("--csv", type=str, default=csv_path)
+    parser.add_argument("--vocab", type=str, default=vocab_path)
     args = parser.parse_args()
     issues = validate_metadata(args.csv, args.vocab)
 

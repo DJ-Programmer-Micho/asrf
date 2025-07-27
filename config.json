@@ -6,9 +6,9 @@
     "tokenizer_type": "custom"
   },
   "dataset": {
-    "original_data_path": "./dataset/original_data",
-    "preprocessed_data_path": "./dataset/preprocessed_data",
-    "vocab_path": "./dataset/vocab/vocab.json",
+    "original_data_path": "dataset/original_data",
+    "preprocessed_data_path": "dataset/preprocessed_data",
+    "vocab_path": "dataset/vocab/vocab.json",
     "audio_column": "path",
     "transcript_column": "transcript",
     "sampling_rate": 16000,
