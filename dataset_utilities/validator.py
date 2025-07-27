@@ -1,12 +1,17 @@
+# dataset_utilities/validator.py
+
 """
 Validate Kurdish Sorani ASR dataset for training readiness.
 """
 
-import pandas as pd
+import sys
 from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+import json
+import pandas as pd
 from normalizer import KurdishSoraniNormalizer
 from utils.config_loader import load_config
-import json
 
 
 def validate_metadata(csv_path=None, vocab_path=None):
