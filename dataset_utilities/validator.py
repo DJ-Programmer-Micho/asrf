@@ -8,7 +8,7 @@ from normalizer import KurdishSoraniNormalizer
 import json
 
 
-def validate_metadata(csv_path, vocab_path=None):
+def validate_metadata(csv_path=None, vocab_path=None):
     df = pd.read_csv(csv_path)
     normalizer = KurdishSoraniNormalizer()
 
@@ -52,8 +52,11 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--csv", type=str, required=True)
-    parser.add_argument("--vocab", type=str, default="./dataset/vocab/vocab.json")
-
+    parser.add_argument("--csv", type=str, default="dataset/preprocessed_data/metadata.csv")
+    parser.add_argument("--vocab", type=str, default="dataset/vocab/sample_vocab.json")
     args = parser.parse_args()
+    issues = validate_metadata(args.csv, args.vocab)
+
+    # ✅ Show details of transcripts with invalid characters
+    print(json.dumps(issues["invalid_chars"], indent=2, ensure_ascii=False))
     validate_metadata(args.csv, args.vocab)
