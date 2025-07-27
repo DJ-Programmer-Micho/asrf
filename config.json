@@ -24,7 +24,10 @@
     "val_ratio": 0.1,
     "test_ratio": 0.1,
     "duration_bins": 5,
-    "random_state": 42
+    "random_state": 42,
+    "split_train_path": "dataset/prepared_splits/train.csv",
+    "split_test_path": "dataset/prepared_splits/test.csv",
+    "split_val_path": "dataset/prepared_splits/validation.csv"
   },
   "training": {
     "learning_rate": 3e-4,

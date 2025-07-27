@@ -9,6 +9,11 @@ from pathlib import Path
 import argparse
 from normalizer import KurdishSoraniNormalizer
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from utils.config_loader import load_config
+
 
 def load_and_prepare_split(csv_path, sampling_rate, normalizer=None):
     df = pd.read_csv(csv_path)
@@ -22,20 +27,25 @@ def load_and_prepare_split(csv_path, sampling_rate, normalizer=None):
 
 
 def prepare_datasets(config):
+    config = load_config()
+    
+    csv_split_train = config["split_data"]["split_train_path"]
+    csv_split_test = config["split_data"]["split_test_path"]
+    csv_split_val = config["split_data"]["split_val_path"]
     normalizer = KurdishSoraniNormalizer()
 
     train_ds = load_and_prepare_split(
-        config['dataset']['preprocessed_data_path'] + "/train.csv",
+        csv_split_train,
         config['dataset']['sampling_rate'],
         normalizer
     )
     val_ds = load_and_prepare_split(
-        config['dataset']['preprocessed_data_path'] + "/validation.csv",
+        csv_split_val,
         config['dataset']['sampling_rate'],
         normalizer
     )
     test_ds = load_and_prepare_split(
-        config['dataset']['preprocessed_data_path'] + "/test.csv",
+        csv_split_test,
         config['dataset']['sampling_rate'],
         normalizer
     )
