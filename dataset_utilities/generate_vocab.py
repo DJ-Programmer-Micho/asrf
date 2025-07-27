@@ -12,6 +12,10 @@ import argparse
 
 from normalizer import KurdishSoraniNormalizer
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from utils.config_loader import load_config
 
 class KurdishVocabularyGenerator:
     def __init__(self):
@@ -199,12 +203,17 @@ class KurdishVocabularyGenerator:
 
 
 def main():
+    config = load_config()
+    
+    csv_pre = config["dataset"]["preprocessed_data_path_csv"]
+    vocab_path = config["dataset"]["vocab_path"]
+    transcript_column = config["dataset"]["transcript_column"]
     parser = argparse.ArgumentParser(description='Generate Kurdish Sorani vocabulary for ASR')
-    parser.add_argument('--csv_path', type=str, default='dataset/preprocessed_data/metadata.csv',
+    parser.add_argument('--csv_path', type=str, default=csv_pre,
                        help='Path to CSV file with transcripts')
-    parser.add_argument('--output_path', type=str, default='dataset/vocab/vocab.json',
+    parser.add_argument('--output_path', type=str, default=vocab_path,
                        help='Output path for vocabulary JSON')
-    parser.add_argument('--transcript_column', type=str, default='transcript',
+    parser.add_argument('--transcript_column', type=str, default=transcript_column,
                        help='Name of transcript column in CSV')
     parser.add_argument('--min_frequency', type=int, default=1,
                        help='Minimum character frequency for inclusion')
@@ -248,12 +257,15 @@ def main():
 
 if __name__ == "__main__":
     import sys
+    config = load_config()
     
+    csv_pre = config["dataset"]["preprocessed_data_path_csv"]
+    vocab_path = config["dataset"]["vocab_path"]
     # Example usage when run directly
     if len(sys.argv) == 1:
         print("Example usage:")
-        print("python generate_vocab.py --csv_path ./dataset/preprocessed_data/metadata.csv --output_path ./dataset/vocab/vocab.json")
-        
+        print(f"python generate_vocab.py --csv_path {csv_pre} --output_path {vocab_path}")
+            
         # Demo with sample data
         generator = KurdishVocabularyGenerator()
         
@@ -269,7 +281,6 @@ if __name__ == "__main__":
         generator.print_vocabulary_stats(vocab)
         
         # Save sample vocab
-        output_path = "dataset/vocab/sample_vocab.json"
-        generator.save_vocabulary(vocab, output_path)
+        generator.save_vocabulary(vocab, vocab_path)
     else:
         main()

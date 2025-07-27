@@ -57,7 +57,7 @@ def validate_metadata(csv_path=None, vocab_path=None):
 if __name__ == "__main__":
     import argparse
     config = load_config()
-    csv_path = config["dataset"]["preprocessed_data_path"] + "/metadata.csv"
+    csv_path = config["dataset"]["preprocessed_data_path_csv"]
     vocab_path = config["dataset"]["vocab_path"]
 
     parser = argparse.ArgumentParser()

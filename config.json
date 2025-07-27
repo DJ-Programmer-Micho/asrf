@@ -7,13 +7,24 @@
   },
   "dataset": {
     "original_data_path": "dataset/original_data",
+    "original_data_path_xlsx": "dataset/original_data/metadata.xlsx",
+    "original_data_path_csv": "dataset/original_data/metadata.csv",
     "preprocessed_data_path": "dataset/preprocessed_data",
-    "vocab_path": "dataset/vocab/vocab.json",
+    "preprocessed_data_path_csv": "dataset/preprocessed_data/metadata.csv",
+    "vocab_path": "dataset/vocab/sample_vocab.json",
+    "split_validation": "dataset/prepared_splits",
     "audio_column": "path",
     "transcript_column": "transcript",
     "sampling_rate": 16000,
     "max_duration_in_seconds": 20.0,
     "min_duration_in_seconds": 0.5
+  },
+  "split_data": {
+    "train_ratio": 0.8,
+    "val_ratio": 0.1,
+    "test_ratio": 0.1,
+    "duration_bins": 5,
+    "random_state": 42
   },
   "training": {
     "learning_rate": 3e-4,

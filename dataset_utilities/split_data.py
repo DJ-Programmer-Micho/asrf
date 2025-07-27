@@ -12,6 +12,10 @@ from typing import Tuple, Dict
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+from utils.config_loader import load_config
 
 class DatasetSplitter:
     def __init__(self, train_ratio: float = 0.8, val_ratio: float = 0.1, test_ratio: float = 0.1):
@@ -358,30 +362,37 @@ class DatasetSplitter:
 
 
 def main():
+    config = load_config()
+    
+    csv_pre = config["dataset"]["preprocessed_data_path_csv"]
+    prepared_splits = config["dataset"]["split_validation"]
+    transcript_column = config["dataset"]["transcript_column"]
+    train_ratio = config["split_data"]["train_ratio"]
+    val_ratio = config["split_data"]["val_ratio"]
+    test_ratio = config["split_data"]["test_ratio"]
+    duration_bins = config["split_data"]["duration_bins"]
+    random_state = config["split_data"]["random_state"]
+
     parser = argparse.ArgumentParser(description='Split Kurdish Sorani ASR dataset')
-    parser.add_argument('--input_csv', type=str, default='dataset/preprocessed_data/metadata.csv',
+    parser.add_argument('--input_csv', type=str, default=csv_pre,
                        help='Input CSV file with dataset')
-    # parser.add_argument('--input_csv', type=str, required=True,
-    #                    help='Input CSV file with dataset')
-    parser.add_argument('--output_dir', type=str, default='dataset/prepared_splits',
+    parser.add_argument('--output_dir', type=str, default=prepared_splits,
                        help='Output directory for split files')
-    # parser.add_argument('--output_dir', type=str, required=True,
-    #                    help='Output directory for split files')
-    parser.add_argument('--train_ratio', type=float, default=0.8,
+    parser.add_argument('--train_ratio', type=float, default=train_ratio,
                        help='Training set ratio (default: 0.8)')
-    parser.add_argument('--val_ratio', type=float, default=0.1,
+    parser.add_argument('--val_ratio', type=float, default=val_ratio,
                        help='Validation set ratio (default: 0.1)')
-    parser.add_argument('--test_ratio', type=float, default=0.1,
+    parser.add_argument('--test_ratio', type=float, default=test_ratio,
                        help='Test set ratio (default: 0.1)')
     parser.add_argument('--stratify_by_duration', action='store_true',
                        help='Stratify by audio duration bins')
-    parser.add_argument('--duration_bins', type=int, default=5,
+    parser.add_argument('--duration_bins', type=int, default=duration_bins,
                        help='Number of duration bins for stratification')
     parser.add_argument('--audio_path_col', type=str, default='path',
                        help='Column name for audio file paths')
-    parser.add_argument('--transcript_col', type=str, default='transcript',
+    parser.add_argument('--transcript_col', type=str, default=transcript_column,
                        help='Column name for transcripts')
-    parser.add_argument('--random_state', type=int, default=42,
+    parser.add_argument('--random_state', type=int, default=random_state,
                        help='Random seed for reproducibility')
     parser.add_argument('--create_plots', action='store_true',
                        help='Create analysis plots')
