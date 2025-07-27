@@ -49,7 +49,7 @@
     "warmup_ratio": 0.1
   },
   "wandb": {
-    "project": "kurdish-sorani-asr",
+    "project": "asrf",
     "entity": null,
     "run_name": null
   }
