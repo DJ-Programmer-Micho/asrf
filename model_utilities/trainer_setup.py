@@ -2,8 +2,9 @@
 Setup Hugging Face Trainer components for Kurdish Sorani ASR.
 Loads TrainingArguments and CTC data collator.
 """
+from transformers import TrainingArguments
+from data_collator import DataCollatorCTCWithPadding 
 
-from transformers import TrainingArguments, DataCollatorCTCWithPadding
 import os
 
 

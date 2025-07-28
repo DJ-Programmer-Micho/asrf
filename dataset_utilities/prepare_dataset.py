@@ -7,12 +7,12 @@ from datasets import Dataset, Audio, DatasetDict
 from transformers import Wav2Vec2Processor
 from pathlib import Path
 import argparse
-from normalizer import KurdishSoraniNormalizer
 
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from utils.config_loader import load_config
+from dataset_utilities.normalizer import KurdishSoraniNormalizer
 
 
 def load_and_prepare_split(csv_path, sampling_rate, normalizer=None):

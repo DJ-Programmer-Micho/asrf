@@ -8,11 +8,11 @@ from model_utilities.tokenizer_setup import load_processor
 from model_utilities.load_model import load_model_and_processor
 from model_utilities.trainer_setup import load_training_arguments, load_data_collator
 from transformers import Trainer
-from datasets import load_metric
-
+import evaluate
+    
 
 def compute_metrics(pred):
-    wer_metric = load_metric("wer")
+    wer_metric = evaluate.load("wer")
     pred_ids = pred.predictions.argmax(-1)
     pred_str = processor.batch_decode(pred_ids)
     label_ids = pred.label_ids

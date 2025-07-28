@@ -6,12 +6,12 @@ import json
 from dataset_utilities.prepare_dataset import prepare_datasets
 from model_utilities.load_model import load_model_and_processor
 from model_utilities.tokenizer_setup import load_processor
-from datasets import load_metric
+import evaluate
 import torch
 
 
 def compute_wer(predictions, references):
-    metric = load_metric("wer")
+    metric = evaluate.load("wer")
     return metric.compute(predictions=predictions, references=references)
 
 
