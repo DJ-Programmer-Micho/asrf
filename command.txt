@@ -1,0 +1,30 @@
+
+python ./run_normalization.py
+python ./dataset_utilities/split_data.py --stratify_by_duration --create_plots
+python ./dataset_utilities/generate_vocab.py --validate
+python ./dataset_utilities/validator.py
+python .\model_utilities\tokenizer_setup.py
+
+
+
+
+
+
+✅ Fix Option 1 (Recommended for small datasets):
+If you want to evaluate and save after each epoch, update both to "epoch":
+
+json
+Copy code
+"evaluation_strategy": "epoch",
+"save_strategy": "epoch",
+"load_best_model_at_end": true
+✅ Fix Option 2 (Recommended for large datasets):
+If you want to evaluate and save every few steps, change both to "steps" and set eval_steps / save_steps:
+
+json
+Copy code
+"evaluation_strategy": "steps",
+"save_strategy": "steps",
+"eval_steps": 100,
+"save_steps": 100,
+"load_best_model_at_end": true

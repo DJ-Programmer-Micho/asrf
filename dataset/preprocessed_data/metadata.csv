@@ -1,194 +1,194 @@
-path,transcript,English Translation
-dataset/original_data/audio/sample0001.wav,سڵاو,Hello
-dataset/original_data/audio/sample0002.wav,چونیت؟,How Are You?
-dataset/original_data/audio/sample0003.wav,چونی؟,How Are You?
-dataset/original_data/audio/sample0004.wav,باشم,I'm Fine
-dataset/original_data/audio/sample0005.wav,باش,Good
-dataset/original_data/audio/sample0006.wav,باش نیم,I'm Not Good
-dataset/original_data/audio/sample0007.wav,سوپاس,Thanks
-dataset/original_data/audio/sample0008.wav,سپاس,Thanks
-dataset/original_data/audio/sample0009.wav,ئەی تۆ چۆنی؟,and how are you?
-dataset/original_data/audio/sample0010.wav,ئەی تۆ؟,and you?
-dataset/original_data/audio/sample0011.wav,ئەی تۆ چۆنیت؟,and how are you?
-dataset/original_data/audio/sample0012.wav,تۆ,you
-dataset/original_data/audio/sample0013.wav,من,I
-dataset/original_data/audio/sample0014.wav,من باشم,I'm Fine
-dataset/original_data/audio/sample0015.wav,منیش,Me too
-dataset/original_data/audio/sample0016.wav,منیش باشم سوپاس,"I'm also good, thanks"
-dataset/original_data/audio/sample0017.wav,خۆشحاڵم بە ناسینت,Nice to meet you
-dataset/original_data/audio/sample0018.wav,خۆشحاڵم,Glad
-dataset/original_data/audio/sample0019.wav,منیش خۆشحاڵم,I'm also glad
-dataset/original_data/audio/sample0020.wav,زۆر سوپاس,Thank you so much
-dataset/original_data/audio/sample0021.wav,پیاو,man
-dataset/original_data/audio/sample0022.wav,پیاوان,men
-dataset/original_data/audio/sample0023.wav,شاخ,mountain
-dataset/original_data/audio/sample0024.wav,شاخان,mountains
-dataset/original_data/audio/sample0025.wav,نامه,letter
-dataset/original_data/audio/sample0026.wav,نامان,letters
-dataset/original_data/audio/sample0027.wav,پیاڵە,glass cup
-dataset/original_data/audio/sample0028.wav,پیاڵان,glass cups
-dataset/original_data/audio/sample0029.wav,فڕۆکە,airplane
-dataset/original_data/audio/sample0030.wav,فڕۆکان,airplanes
-dataset/original_data/audio/sample0031.wav,ئاڵا,flag
-dataset/original_data/audio/sample0032.wav,ئاڵایان,flags
-dataset/original_data/audio/sample0033.wav,کۆمەڵگا,society
-dataset/original_data/audio/sample0034.wav,کۆمەڵگایان,societies
-dataset/original_data/audio/sample0035.wav,مراوی,duck
-dataset/original_data/audio/sample0036.wav,مراویان,ducks
-dataset/original_data/audio/sample0037.wav,جوان,beautiful
-dataset/original_data/audio/sample0038.wav,جوانتر,more beautiful
-dataset/original_data/audio/sample0039.wav,جوانترین,most beautiful
-dataset/original_data/audio/sample0040.wav,گەورە,big
-dataset/original_data/audio/sample0041.wav,گەورەتر,bigger
-dataset/original_data/audio/sample0042.wav,گەورەترین,biggest
-dataset/original_data/audio/sample0043.wav,بەتەمەن,old
-dataset/original_data/audio/sample0044.wav,بەتەمەنتر,older
-dataset/original_data/audio/sample0045.wav,بەتەمەنترین,oldest
-dataset/original_data/audio/sample0046.wav,ئاڵاکە,the flag
-dataset/original_data/audio/sample0047.wav,هەرمێ,pear
-dataset/original_data/audio/sample0048.wav,هەرمێ کە,the pear
-dataset/original_data/audio/sample0049.wav,سەیارە,car
-dataset/original_data/audio/sample0050.wav,سەیارەکە,the car
-dataset/original_data/audio/sample0051.wav,کتێب,book
-dataset/original_data/audio/sample0052.wav,کتێبەکە,the book
-dataset/original_data/audio/sample0053.wav,پیاوەکە,the man
-dataset/original_data/audio/sample0054.wav,ئاڵاکان,the flags
-dataset/original_data/audio/sample0055.wav,کتێبەکان,the books
-dataset/original_data/audio/sample0056.wav,من,I
-dataset/original_data/audio/sample0057.wav,تۆ,You
-dataset/original_data/audio/sample0058.wav,ئەو,He
-dataset/original_data/audio/sample0059.wav,ێمە,We
-dataset/original_data/audio/sample0060.wav,ێوە,You
-dataset/original_data/audio/sample0061.wav,ئەوان,They
-dataset/original_data/audio/sample0062.wav,من دکتۆرم,I'am a doctor
-dataset/original_data/audio/sample0063.wav,تۆ مامۆستای,you are a teacher
-dataset/original_data/audio/sample0064.wav,ئەو نەخۆشه,Hedataset/original_data/audio/she is sick
-dataset/original_data/audio/sample0065.wav,کتێبەکەم,My book
-dataset/original_data/audio/sample0066.wav,سەیارەکەت,Your car
-dataset/original_data/audio/sample0067.wav,چاکەتەکەی,His/Her jacket
-dataset/original_data/audio/sample0068.wav,مامۆستاکەیان,Their teacher
-dataset/original_data/audio/sample0069.wav,مراوی یەک,a duck
-dataset/original_data/audio/sample0070.wav,کتێبێک,a book
-dataset/original_data/audio/sample0071.wav,سەیارەم هەیە,I have car
-dataset/original_data/audio/sample0072.wav,سەیارەم نییە,I don't have car
-dataset/original_data/audio/sample0073.wav,هەیە,I have
-dataset/original_data/audio/sample0074.wav,نییە,I don't have
-dataset/original_data/audio/sample0075.wav,کتێبە,is book
-dataset/original_data/audio/sample0076.wav,ماسی یە,is fish
-dataset/original_data/audio/sample0077.wav,گەرمه,is hot
-dataset/original_data/audio/sample0078.wav,ساردە,is cold
-dataset/original_data/audio/sample0079.wav,جوانە,is beatiful
-dataset/original_data/audio/sample0080.wav,نانەکە گەرمە,the bread is hot
-dataset/original_data/audio/sample0081.wav,شاخەکە بەرزە,the mountain is high
-dataset/original_data/audio/sample0082.wav,گوڵەکە جوانە,the flower is beautiful
-dataset/original_data/audio/sample0083.wav,کردن,to do
-dataset/original_data/audio/sample0084.wav,خواردن,to eat
-dataset/original_data/audio/sample0085.wav,شۆردن,to wash
-dataset/original_data/audio/sample0086.wav,فڕین,to fly
-dataset/original_data/audio/sample0087.wav,خواردنەوە,to drink
-dataset/original_data/audio/sample0088.wav,بردنەوە,to win
-dataset/original_data/audio/sample0089.wav,مانەوە,to stay
-dataset/original_data/audio/sample0090.wav,جوڵانەوە,to move
-dataset/original_data/audio/sample0091.wav,کات,time
-dataset/original_data/audio/sample0092.wav,کاتژمێر,hour
-dataset/original_data/audio/sample0093.wav,کاتژمێر جەندە؟,what time is it?
-dataset/original_data/audio/sample0094.wav,کاتژمێر جەنە؟,what time is it?
-dataset/original_data/audio/sample0095.wav,سەعات جەنە؟,what time is it?
-dataset/original_data/audio/sample0096.wav,سەعات جەندە؟,what time is it?
-dataset/original_data/audio/sample0097.wav,یهک,1
-dataset/original_data/audio/sample0098.wav,دو,2
-dataset/original_data/audio/sample0099.wav,سێ,3
-dataset/original_data/audio/sample0100.wav,چوار,4
-dataset/original_data/audio/sample0101.wav,پێنج,5
-dataset/original_data/audio/sample0102.wav,شەش,6
-dataset/original_data/audio/sample0103.wav,حەوت,7
-dataset/original_data/audio/sample0104.wav,هەشت,8
-dataset/original_data/audio/sample0105.wav,نۆ,9
-dataset/original_data/audio/sample0106.wav,ده,10
-dataset/original_data/audio/sample0107.wav,یانزە,11
-dataset/original_data/audio/sample0108.wav,دوانزە,12
-dataset/original_data/audio/sample0109.wav,سەعات پێنجە؟,It's 5:00
-dataset/original_data/audio/sample0110.wav,کاتژمێر پێنجە؟,It's 5:00
-dataset/original_data/audio/sample0111.wav,نیو,half
-dataset/original_data/audio/sample0112.wav,پێنج و نیو,half past 5
-dataset/original_data/audio/sample0113.wav,چارەک,quarter
-dataset/original_data/audio/sample0114.wav,پێنج و چارەک,quarter past 5
-dataset/original_data/audio/sample0115.wav,خولەک,minute
-dataset/original_data/audio/sample0116.wav,دەقە,minute
-dataset/original_data/audio/sample0117.wav,پێنج و دە دەقە,It's 5 and 10 minute
-dataset/original_data/audio/sample0118.wav,سەعات پێنج و دە دەقە,It's 5 and 10 minute
-dataset/original_data/audio/sample0119.wav,کاتژمێر پێنج و دە خولەک,It's 5 and 10 minute
-dataset/original_data/audio/sample0120.wav,زۆر باشە,very good
-dataset/original_data/audio/sample0121.wav,چرکە,second
-dataset/original_data/audio/sample0122.wav,سانیە,second
-dataset/original_data/audio/sample0123.wav,ڕوژ,day
-dataset/original_data/audio/sample0124.wav,مانگ,month
-dataset/original_data/audio/sample0125.wav,هەفتە,week
-dataset/original_data/audio/sample0126.wav,ساڵ,year
-dataset/original_data/audio/sample0127.wav,بیست و یهک ساڵم,I'am twenty one year old
-dataset/original_data/audio/sample0128.wav,بیست و دو ساڵم,I'am twenty two year old
-dataset/original_data/audio/sample0129.wav,مانگی یەک,January
-dataset/original_data/audio/sample0130.wav,مانگی دو,February
-dataset/original_data/audio/sample0131.wav,مانگی سێ,March
-dataset/original_data/audio/sample0132.wav,مانگی چوار,April
-dataset/original_data/audio/sample0133.wav,مانگی پێنج,May
-dataset/original_data/audio/sample0134.wav,بیست و یهکی شەش,2025-06-21 00:00:00
-dataset/original_data/audio/sample0135.wav,کەی لەدایک بویت؟,when were you born?
-dataset/original_data/audio/sample0136.wav,سیانزەی یانزە,2025-11-13 00:00:00
-dataset/original_data/audio/sample0137.wav,سیانزەی یانزە لەدایک بون,I born in 13-Nov
-dataset/original_data/audio/sample0138.wav,ڕۆژی لەدایکبونت کەیە؟,When is your birthday?
-dataset/original_data/audio/sample0139.wav,ئەمڕۆ,today
-dataset/original_data/audio/sample0140.wav,شەو,night
-dataset/original_data/audio/sample0141.wav,ئەمشەو,tonight
-dataset/original_data/audio/sample0142.wav,بەیانی,morning
-dataset/original_data/audio/sample0143.wav,سبەینێ,tommorow
-dataset/original_data/audio/sample0144.wav,سبەی,tommorow
-dataset/original_data/audio/sample0145.wav,دوێنی,yesterday
-dataset/original_data/audio/sample0146.wav,پێرێ,a day before yesterday
-dataset/original_data/audio/sample0147.wav,بەسر پێرێ,a two days ago
-dataset/original_data/audio/sample0148.wav,تەمەن,
-dataset/original_data/audio/sample0149.wav,ئەی تەمەنی پڕ ئەسرینم,
-dataset/original_data/audio/sample0150.wav,ئەڕۆی ئاور نادەیتەوە,
-dataset/original_data/audio/sample0151.wav,لەگەڵ هەمو هەنگاوێکتا,
-dataset/original_data/audio/sample0152.wav,لە عمری من ئەسڕیتەوە,
-dataset/original_data/audio/sample0153.wav,خۆزگە منیشوەک پەپولە,
-dataset/original_data/audio/sample0154.wav,گشت تەمەنم وەرزێک بوایە,
-dataset/original_data/audio/sample0155.wav,دور لەخەم و تاڵی ژیان,
-dataset/original_data/audio/sample0156.wav,تەنیا گوڵم بناسیایا,
-dataset/original_data/audio/sample0157.wav,ڕێگام سەودای تەنیاییەو,
-dataset/original_data/audio/sample0158.wav,کەسێک نایە بۆ سەردانم,
-dataset/original_data/audio/sample0159.wav,ئیترچی بکەم لەم تەمەنە,
-dataset/original_data/audio/sample0160.wav,کەلە هەموی پەشیمانم,
-dataset/original_data/audio/sample0161.wav,لەگریانی منداڵیما,
-dataset/original_data/audio/sample0162.wav,پێکەنینم بەخەم دەهات,
-dataset/original_data/audio/sample0163.wav,کەچی ێستا خەم دەریایەو,
-dataset/original_data/audio/sample0164.wav,بۆکەنارم شە پۆڵ ئەدات,
-dataset/original_data/audio/sample0165.wav,لە سەد جارا تەنیا جارێ رەردەخەنە دێتە میوان,
-dataset/original_data/audio/sample0166.wav,وەک سێبەری لای ێوارەی,
-dataset/original_data/audio/sample0167.wav,خۆرنشینی لای ئەرخەوان,
-dataset/original_data/audio/sample0168.wav,ئەی هاوڕێیان چاوم نوقمی نیگارێکی پڕ بەهارە,
-dataset/original_data/audio/sample0169.wav,تاسەم وەری بەڵام هێشتا خۆشەویستیم هەر بێدارە,
-dataset/original_data/audio/sample0170.wav,ێستاش گەڵای عومری گەنجیم,
-dataset/original_data/audio/sample0171.wav,وەک پایز هەڵوەریوە,
-dataset/original_data/audio/sample0172.wav,کێ وەکو من تەم و خومار,
-dataset/original_data/audio/sample0173.wav,پەنجەرەکەی داپۆشیوە,
-dataset/original_data/audio/sample0174.wav,لێم مەپرسە بۆ چی ئەمرۆ ژورەکەم وا رازاوەییە,
-dataset/original_data/audio/sample0175.wav,ئەمرۆ باخچەی حەوشەکەشمان زۆر بۆن خۆش و گەشاوەییە,
-dataset/original_data/audio/sample0176.wav,میوانێکی ئازیزم دێ وەک گیانم خۆشم ویستوە,
-dataset/original_data/audio/sample0177.wav,ئەی نابینی فەرشی رۆحم بۆ پێشوازی راخستوە,
-dataset/original_data/audio/sample0178.wav,ئەو رۆژانەی کە دێ ی بۆ لام,
-dataset/original_data/audio/sample0179.wav,دیدەم رون و پر نورە بێت,
-dataset/original_data/audio/sample0180.wav,خۆشەویستمیم نەک هەر بۆتۆ,
-dataset/original_data/audio/sample0181.wav,بۆ عالەم بێ سنورە بێت,
-dataset/original_data/audio/sample0182.wav,چاوەکانم پڕ گریانن,
-dataset/original_data/audio/sample0183.wav,ماوەیەکە خۆ دەزانم,
-dataset/original_data/audio/sample0184.wav,گوڵم تۆ بۆچی دیار نەبوی,
-dataset/original_data/audio/sample0185.wav,وەری گوڵی باخی ژیانم,
-dataset/original_data/audio/sample0186.wav,خۆ لەبیرمە بۆ چەن ساتێک,
-dataset/original_data/audio/sample0187.wav,خەوم نەبو بۆ جوانی تۆ,
-dataset/original_data/audio/sample0188.wav,ڕۆژگاریشم وەکو شەو بو,
-dataset/original_data/audio/sample0189.wav,کە نەم ئەدی باڵاکەی تۆ,
-dataset/original_data/audio/sample0190.wav,یادەکانم دوای دابڕان,
-dataset/original_data/audio/sample0191.wav,مەنتی دوری و جودای بو,
-dataset/original_data/audio/sample0192.wav,بۆ نازداری و دڵ سۆزی تۆ,
-dataset/original_data/audio/sample0193.wav,چاوم وەکو ڕوبارێ بو,
+path,transcript
+/sample0001.wav,سڵاو
+/sample0002.wav,چونیت؟
+/sample0003.wav,چونی؟
+/sample0004.wav,باشم
+/sample0005.wav,باش
+/sample0006.wav,باش نیم
+/sample0007.wav,سوپاس
+/sample0008.wav,سپاس
+/sample0009.wav,ئەی تۆ چۆنی؟
+/sample0010.wav,ئەی تۆ؟
+/sample0011.wav,ئەی تۆ چۆنیت؟
+/sample0012.wav,تۆ
+/sample0013.wav,من
+/sample0014.wav,من باشم
+/sample0015.wav,منیش
+/sample0016.wav,منیش باشم سوپاس
+/sample0017.wav,خۆشحاڵم بە ناسینت
+/sample0018.wav,خۆشحاڵم
+/sample0019.wav,منیش خۆشحاڵم
+/sample0020.wav,زۆر سوپاس
+/sample0021.wav,پیاو
+/sample0022.wav,پیاوان
+/sample0023.wav,شاخ
+/sample0024.wav,شاخان
+/sample0025.wav,نامه
+/sample0026.wav,نامان
+/sample0027.wav,پیاڵە
+/sample0028.wav,پیاڵان
+/sample0029.wav,فڕۆکە
+/sample0030.wav,فڕۆکان
+/sample0031.wav,ئاڵا
+/sample0032.wav,ئاڵایان
+/sample0033.wav,کۆمەڵگا
+/sample0034.wav,کۆمەڵگایان
+/sample0035.wav,مراوی
+/sample0036.wav,مراویان
+/sample0037.wav,جوان
+/sample0038.wav,جوانتر
+/sample0039.wav,جوانترین
+/sample0040.wav,گەورە
+/sample0041.wav,گەورەتر
+/sample0042.wav,گەورەترین
+/sample0043.wav,بەتەمەن
+/sample0044.wav,بەتەمەنتر
+/sample0045.wav,بەتەمەنترین
+/sample0046.wav,ئاڵاکە
+/sample0047.wav,هەرمێ
+/sample0048.wav,هەرمێ کە
+/sample0049.wav,سەیارە
+/sample0050.wav,سەیارەکە
+/sample0051.wav,کتێب
+/sample0052.wav,کتێبەکە
+/sample0053.wav,پیاوەکە
+/sample0054.wav,ئاڵاکان
+/sample0055.wav,کتێبەکان
+/sample0056.wav,من
+/sample0057.wav,تۆ
+/sample0058.wav,ئەو
+/sample0059.wav,ێمە
+/sample0060.wav,ێوە
+/sample0061.wav,ئەوان
+/sample0062.wav,من دکتۆرم
+/sample0063.wav,تۆ مامۆستای
+/sample0064.wav,ئەو نەخۆشه
+/sample0065.wav,کتێبەکەم
+/sample0066.wav,سەیارەکەت
+/sample0067.wav,چاکەتەکەی
+/sample0068.wav,مامۆستاکەیان
+/sample0069.wav,مراوی یەک
+/sample0070.wav,کتێبێک
+/sample0071.wav,سەیارەم هەیە
+/sample0072.wav,سەیارەم نییە
+/sample0073.wav,هەیە
+/sample0074.wav,نییە
+/sample0075.wav,کتێبە
+/sample0076.wav,ماسی یە
+/sample0077.wav,گەرمه
+/sample0078.wav,ساردە
+/sample0079.wav,جوانە
+/sample0080.wav,نانەکە گەرمە
+/sample0081.wav,شاخەکە بەرزە
+/sample0082.wav,گوڵەکە جوانە
+/sample0083.wav,کردن
+/sample0084.wav,خواردن
+/sample0085.wav,شۆردن
+/sample0086.wav,فڕین
+/sample0087.wav,خواردنەوە
+/sample0088.wav,بردنەوە
+/sample0089.wav,مانەوە
+/sample0090.wav,جوڵانەوە
+/sample0091.wav,کات
+/sample0092.wav,کاتژمێر
+/sample0093.wav,کاتژمێر جەندە؟
+/sample0094.wav,کاتژمێر جەنە؟
+/sample0095.wav,سەعات جەنە؟
+/sample0096.wav,سەعات جەندە؟
+/sample0097.wav,یهک
+/sample0098.wav,دو
+/sample0099.wav,سێ
+/sample0100.wav,چوار
+/sample0101.wav,پێنج
+/sample0102.wav,شەش
+/sample0103.wav,حەوت
+/sample0104.wav,هەشت
+/sample0105.wav,نۆ
+/sample0106.wav,ده
+/sample0107.wav,یانزە
+/sample0108.wav,دوانزە
+/sample0109.wav,سەعات پێنجە؟
+/sample0110.wav,کاتژمێر پێنجە؟
+/sample0111.wav,نیو
+/sample0112.wav,پێنج و نیو
+/sample0113.wav,چارەک
+/sample0114.wav,پێنج و چارەک
+/sample0115.wav,خولەک
+/sample0116.wav,دەقە
+/sample0117.wav,پێنج و دە دەقە
+/sample0118.wav,سەعات پێنج و دە دەقە
+/sample0119.wav,کاتژمێر پێنج و دە خولەک
+/sample0120.wav,زۆر باشە
+/sample0121.wav,چرکە
+/sample0122.wav,سانیە
+/sample0123.wav,ڕوژ
+/sample0124.wav,مانگ
+/sample0125.wav,هەفتە
+/sample0126.wav,ساڵ
+/sample0127.wav,بیست و یهک ساڵم
+/sample0128.wav,بیست و دو ساڵم
+/sample0129.wav,مانگی یەک
+/sample0130.wav,مانگی دو
+/sample0131.wav,مانگی سێ
+/sample0132.wav,مانگی چوار
+/sample0133.wav,مانگی پێنج
+/sample0134.wav,بیست و یهکی شەش
+/sample0135.wav,کەی لەدایک بویت؟
+/sample0136.wav,سیانزەی یانزە
+/sample0137.wav,سیانزەی یانزە لەدایک بون
+/sample0138.wav,ڕۆژی لەدایکبونت کەیە؟
+/sample0139.wav,ئەمڕۆ
+/sample0140.wav,شەو
+/sample0141.wav,ئەمشەو
+/sample0142.wav,بەیانی
+/sample0143.wav,سبەینێ
+/sample0144.wav,سبەی
+/sample0145.wav,دوێنی
+/sample0146.wav,پێرێ
+/sample0147.wav,بەسر پێرێ
+/sample0148.wav,تەمەن
+/sample0149.wav,ئەی تەمەنی پڕ ئەسرینم
+/sample0150.wav,ئەڕۆی ئاور نادەیتەوە
+/sample0151.wav,لەگەڵ هەمو هەنگاوێکتا
+/sample0152.wav,لە عمری من ئەسڕیتەوە
+/sample0153.wav,خۆزگە منیشوەک پەپولە
+/sample0154.wav,گشت تەمەنم وەرزێک بوایە
+/sample0155.wav,دور لەخەم و تاڵی ژیان
+/sample0156.wav,تەنیا گوڵم بناسیایا
+/sample0157.wav,ڕێگام سەودای تەنیاییەو
+/sample0158.wav,کەسێک نایە بۆ سەردانم
+/sample0159.wav,ئیترچی بکەم لەم تەمەنە
+/sample0160.wav,کەلە هەموی پەشیمانم
+/sample0161.wav,لەگریانی منداڵیما
+/sample0162.wav,پێکەنینم بەخەم دەهات
+/sample0163.wav,کەچی ێستا خەم دەریایەو
+/sample0164.wav,بۆکەنارم شە پۆڵ ئەدات
+/sample0165.wav,لە سەد جارا تەنیا جارێ رەردەخەنە دێتە میوان
+/sample0166.wav,وەک سێبەری لای ێوارەی
+/sample0167.wav,خۆرنشینی لای ئەرخەوان
+/sample0168.wav,ئەی هاوڕێیان چاوم نوقمی نیگارێکی پڕ بەهارە
+/sample0169.wav,تاسەم وەری بەڵام هێشتا خۆشەویستیم هەر بێدارە
+/sample0170.wav,ێستاش گەڵای عومری گەنجیم
+/sample0171.wav,وەک پایز هەڵوەریوە
+/sample0172.wav,کێ وەکو من تەم و خومار
+/sample0173.wav,پەنجەرەکەی داپۆشیوە
+/sample0174.wav,لێم مەپرسە بۆ چی ئەمرۆ ژورەکەم وا رازاوەییە
+/sample0175.wav,ئەمرۆ باخچەی حەوشەکەشمان زۆر بۆن خۆش و گەشاوەییە
+/sample0176.wav,میوانێکی ئازیزم دێ وەک گیانم خۆشم ویستوە
+/sample0177.wav,ئەی نابینی فەرشی رۆحم بۆ پێشوازی راخستوە
+/sample0178.wav,ئەو رۆژانەی کە دێ ی بۆ لام
+/sample0179.wav,دیدەم رون و پر نورە بێت
+/sample0180.wav,خۆشەویستمیم نەک هەر بۆتۆ
+/sample0181.wav,بۆ عالەم بێ سنورە بێت
+/sample0182.wav,چاوەکانم پڕ گریانن
+/sample0183.wav,ماوەیەکە خۆ دەزانم
+/sample0184.wav,گوڵم تۆ بۆچی دیار نەبوی
+/sample0185.wav,وەری گوڵی باخی ژیانم
+/sample0186.wav,خۆ لەبیرمە بۆ چەن ساتێک
+/sample0187.wav,خەوم نەبو بۆ جوانی تۆ
+/sample0188.wav,ڕۆژگاریشم وەکو شەو بو
+/sample0189.wav,کە نەم ئەدی باڵاکەی تۆ
+/sample0190.wav,یادەکانم دوای دابڕان
+/sample0191.wav,مەنتی دوری و جودای بو
+/sample0192.wav,بۆ نازداری و دڵ سۆزی تۆ
+/sample0193.wav,چاوم وەکو ڕوبارێ بو

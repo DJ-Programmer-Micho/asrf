@@ -35,45 +35,40 @@ class DatasetSplitter:
         self.test_ratio = test_ratio
         
     def analyze_dataset(self, df: pd.DataFrame, audio_path_col: str = 'path', 
-                       transcript_col: str = 'transcript') -> Dict:
+                    transcript_col: str = 'transcript') -> Dict:
         """
         Analyze dataset characteristics for informed splitting.
-        
-        Args:
-            df: DataFrame with audio paths and transcripts
-            audio_path_col: Column name for audio file paths
-            transcript_col: Column name for transcripts
-            
-        Returns:
-            Dictionary with dataset statistics
         """
         import librosa
-        
+
         print("Analyzing dataset characteristics...")
+        config = load_config()
+        base_dir = Path(config["dataset"]["audio_path"])
         
         # Basic statistics
         total_samples = len(df)
-        
+
         # Transcript length analysis
         df['transcript_length'] = df[transcript_col].str.len()
         df['word_count'] = df[transcript_col].str.split().str.len()
-        
+
         # Audio duration analysis (sample a subset for speed)
         sample_size = min(1000, len(df))
         sample_df = df.sample(n=sample_size, random_state=42)
-        
+
         durations = []
         for _, row in sample_df.iterrows():
             try:
-                audio_path = row[audio_path_col]
-                if Path(audio_path).exists():
-                    # Get duration without loading full audio
+                # Fix: Use lstrip('/') to remove leading slash
+                audio_path = base_dir / row[audio_path_col].lstrip('/')
+                if audio_path.exists():
                     duration = librosa.get_duration(path=audio_path)
                     durations.append(duration)
+                else:
+                    print(f"Warning: Audio file not found: {audio_path}")
             except Exception as e:
                 print(f"Warning: Could not get duration for {audio_path}: {e}")
-        
-        # Statistics
+
         stats = {
             'total_samples': total_samples,
             'transcript_stats': {
@@ -84,7 +79,7 @@ class DatasetSplitter:
             },
             'word_count_stats': {
                 'min_words': df['word_count'].min(),
-                'max_words': df['word_count'].max(), 
+                'max_words': df['word_count'].max(),
                 'mean_words': df['word_count'].mean(),
                 'median_words': df['word_count'].median(),
             },
@@ -96,33 +91,29 @@ class DatasetSplitter:
                 'median_duration': np.median(durations) if durations else 0,
             }
         }
-        
+
         return stats
-    
+
     def create_duration_bins(self, df: pd.DataFrame, audio_path_col: str = 'path', 
-                           num_bins: int = 5) -> pd.Series:
+                            num_bins: int = 5) -> pd.Series:
         """
         Create duration bins for stratified splitting.
-        
-        Args:
-            df: DataFrame with audio paths
-            audio_path_col: Column name for audio paths
-            num_bins: Number of duration bins
-            
-        Returns:
-            Series with bin labels
+        Filters out bins with fewer than 2 samples to avoid stratification errors.
         """
         import librosa
-        
+
         print(f"Creating {num_bins} duration bins for stratified splitting...")
-        
+        config = load_config()
+        base_dir = Path(config["dataset"]["audio_path"])
+
         durations = []
         valid_indices = []
-        
+
         for idx, row in df.iterrows():
             try:
-                audio_path = row[audio_path_col]
-                if Path(audio_path).exists():
+                # Fix: Use lstrip('/') to remove leading slash
+                audio_path = base_dir / row[audio_path_col].lstrip('/')
+                if audio_path.exists():
                     duration = librosa.get_duration(path=audio_path)
                     durations.append(duration)
                     valid_indices.append(idx)
@@ -130,22 +121,55 @@ class DatasetSplitter:
                     print(f"Warning: Audio file not found: {audio_path}")
             except Exception as e:
                 print(f"Warning: Could not process {audio_path}: {e}")
-        
-        # Create bins
-        duration_bins = pd.cut(durations, bins=num_bins, labels=[f'bin_{i}' for i in range(num_bins)])
-        
-        # Create series for all indices
+
+        if not durations:
+            print("Warning: No valid audio files found. Using random assignment.")
+            return pd.Series(['bin_0'] * len(df), index=df.index)
+
+        # Create bins based on quantiles to ensure roughly equal distribution
+        try:
+            # Use quantile-based binning for more balanced bins
+            bin_edges = np.quantile(durations, np.linspace(0, 1, num_bins + 1))
+            # Ensure unique bin edges
+            bin_edges = np.unique(bin_edges)
+            if len(bin_edges) < 2:
+                # All durations are the same
+                all_bins = pd.Series(['bin_0'] * len(df), index=df.index)
+                return all_bins
+                
+            raw_bins = pd.cut(durations, bins=bin_edges, labels=[f'bin_{i}' for i in range(len(bin_edges)-1)], include_lowest=True)
+        except Exception as e:
+            print(f"Warning: Could not create quantile bins, using equal-width bins: {e}")
+            raw_bins = pd.cut(durations, bins=num_bins, labels=[f'bin_{i}' for i in range(num_bins)])
+
+        # Assign bins to full dataframe
         all_bins = pd.Series(index=df.index, dtype='object')
-        all_bins.loc[valid_indices] = duration_bins
-        all_bins.fillna('unknown', inplace=True)
+        all_bins.loc[valid_indices] = raw_bins
+        all_bins.fillna('bin_0', inplace=True)  # Assign unknown files to first bin
+
+        # Check bin sizes and merge small bins
+        bin_counts = all_bins.value_counts()
+        print(f"Initial bin distribution: {dict(bin_counts)}")
         
-        print(f"Duration bin distribution:")
-        print(all_bins.value_counts())
+        # Merge bins with fewer than 2 samples into the largest bin
+        small_bins = bin_counts[bin_counts < 2].index
+        if len(small_bins) > 0:
+            largest_bin = bin_counts.idxmax()
+            print(f"Merging small bins {list(small_bins)} into {largest_bin}")
+            all_bins = all_bins.replace(small_bins, largest_bin)
+            
+        final_counts = all_bins.value_counts()
+        print(f"Final bin distribution: {dict(final_counts)}")
+        
+        # Final check - if still have bins with < 2 samples, disable stratification
+        if any(final_counts < 2):
+            print("Warning: Still have bins with < 2 samples. Disabling stratification.")
+            return None
         
         return all_bins
     
     def split_dataset(self, df: pd.DataFrame, stratify_by: str = None, 
-                     random_state: int = 42) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+                    random_state: int = 42) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         """
         Split dataset into train/validation/test sets.
         
@@ -198,7 +222,7 @@ class DatasetSplitter:
         return train_df, val_df, test_df
     
     def save_splits(self, train_df: pd.DataFrame, val_df: pd.DataFrame, 
-                   test_df: pd.DataFrame, output_dir: str) -> None:
+                test_df: pd.DataFrame, output_dir: str) -> None:
         """
         Save dataset splits to separate CSV files.
         
@@ -226,8 +250,8 @@ class DatasetSplitter:
         print(f"  {test_path} ({len(test_df)} samples)")
     
     def plot_split_analysis(self, train_df: pd.DataFrame, val_df: pd.DataFrame, 
-                           test_df: pd.DataFrame, stratify_by: str = None, 
-                           output_dir: str = None) -> None:
+                        test_df: pd.DataFrame, stratify_by: str = None, 
+                        output_dir: str = None) -> None:
         """
         Create visualizations of the dataset splits.
         
@@ -284,7 +308,7 @@ class DatasetSplitter:
                 axes[1, 1].tick_params(axis='x', rotation=45)
             else:
                 axes[1, 1].text(0.5, 0.5, 'No stratification\ncolumn provided', 
-                               ha='center', va='center', transform=axes[1, 1].transAxes)
+                            ha='center', va='center', transform=axes[1, 1].transAxes)
                 axes[1, 1].set_title('Stratification Analysis')
             
             plt.tight_layout()
@@ -298,9 +322,9 @@ class DatasetSplitter:
             
         except Exception as e:
             print(f"Warning: Could not create plots: {e}")
-    
+        
     def validate_splits(self, train_df: pd.DataFrame, val_df: pd.DataFrame, 
-                       test_df: pd.DataFrame, audio_path_col: str = 'path') -> Dict:
+                    test_df: pd.DataFrame, audio_path_col: str = 'path') -> Dict:
         """
         Validate the dataset splits.
         
@@ -324,42 +348,60 @@ class DatasetSplitter:
         train_test_overlap = train_files.intersection(test_files)
         val_test_overlap = val_files.intersection(test_files)
         
-        # Check for missing files
+        # Check for missing files using the correct path construction
+        config = load_config()
+        base_dir = Path(config["dataset"]["audio_path"])
+        
         all_files = list(train_files) + list(val_files) + list(test_files)
         missing_files = []
-        for file_path in all_files[:100]:  # Check first 100 files
-            if not Path(file_path).exists():
-                missing_files.append(file_path)
+        found_files = 0
+        
+        # Check a sample of files (first 50 to avoid long processing time)
+        sample_files = all_files[:50]
+        for file_path_str in sample_files:
+            # Fix: Use the correct path construction method (method2)
+            audio_path = base_dir / file_path_str.lstrip('/')
+            if audio_path.exists():
+                found_files += 1
+            else:
+                missing_files.append(file_path_str)
         
         validation_results = {
             'total_files': len(all_files),
             'unique_files': len(set(all_files)),
+            'sample_checked': len(sample_files),
+            'found_files': found_files,
+            'missing_files_count': len(missing_files),
             'overlaps': {
                 'train_val': len(train_val_overlap),
                 'train_test': len(train_test_overlap),
                 'val_test': len(val_test_overlap)
             },
-            'missing_files': len(missing_files),
-            'missing_files_sample': missing_files[:10]
+            'missing_files_sample': missing_files[:5]  # Just show first 5
         }
         
         # Print validation results
         print(f"Validation Results:")
         print(f"  Total files: {validation_results['total_files']}")
         print(f"  Unique files: {validation_results['unique_files']}")
+        print(f"  Sample checked: {validation_results['sample_checked']}")
+        print(f"  Found files: {validation_results['found_files']}/{validation_results['sample_checked']}")
         print(f"  Overlaps:")
         print(f"    Train-Val: {validation_results['overlaps']['train_val']}")
         print(f"    Train-Test: {validation_results['overlaps']['train_test']}")
         print(f"    Val-Test: {validation_results['overlaps']['val_test']}")
-        print(f"  Missing files (from sample): {validation_results['missing_files']}")
+        
+        if validation_results['missing_files_count'] > 0:
+            print(f"  Missing files: {validation_results['missing_files_count']}/{validation_results['sample_checked']}")
+            print(f"  Sample missing files: {validation_results['missing_files_sample']}")
+            print("WARNING: Found missing audio files!")
+        else:
+            print("  ✅ All sampled files found successfully!")
         
         if any(validation_results['overlaps'].values()):
             print("WARNING: Found overlapping files between splits!")
-        if validation_results['missing_files']:
-            print("WARNING: Found missing audio files!")
         
         return validation_results
-
 
 def main():
     config = load_config()

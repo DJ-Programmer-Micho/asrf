@@ -1,17 +1,20 @@
 {
   "model": {
+    "pretrained_name_or_path": "./model/pretrained/models--facebook--wav2vec2-xls-r-300m/snapshots/1a640f32ac3e39899438a2931f9924c02f080a54/",
     "name": "facebook/wav2vec2-xls-r-300m",
     "cache_dir": "./model/pretrained",
+    "model_process": "./model/process",
     "output_dir": "./model/finetuned",
     "tokenizer_type": "custom"
   },
   "dataset": {
+    "audio_path": "dataset/original_data/audio",
     "original_data_path": "dataset/original_data",
     "original_data_path_xlsx": "dataset/original_data/metadata.xlsx",
     "original_data_path_csv": "dataset/original_data/metadata.csv",
     "preprocessed_data_path": "dataset/preprocessed_data",
     "preprocessed_data_path_csv": "dataset/preprocessed_data/metadata.csv",
-    "vocab_path": "dataset/vocab/sample_vocab.json",
+    "vocab_path": "dataset/vocab/vocab.json",
     "split_validation": "dataset/prepared_splits",
     "audio_column": "path",
     "transcript_column": "transcript",
@@ -30,17 +33,18 @@
     "split_val_path": "dataset/prepared_splits/validation.csv"
   },
   "training": {
-    "learning_rate": 3e-4,
-    "per_device_train_batch_size": 16,
+    "learning_rate": 3e-5,
+    "per_device_train_batch_size": 8,
     "per_device_eval_batch_size": 8,
     "gradient_accumulation_steps": 2,
-    "num_train_epochs": 30,
-    "warmup_steps": 1000,
-    "logging_steps": 100,
+    "num_train_epochs": 15,
+    "warmup_steps": 100,
+    "logging_steps": 10,
+    "logging_strategy": "epoch",
     "save_steps": 1000,
     "eval_steps": 1000,
-    "save_total_limit": 5,
-    "evaluation_strategy": "steps",
+    "save_total_limit": 2,
+    "evaluation_strategy": "epoch",
     "load_best_model_at_end": true,
     "greater_is_better": false,
     "metric_for_best_model": "eval_wer",
@@ -48,7 +52,9 @@
     "dataloader_num_workers": 4,
     "group_by_length": true,
     "length_column_name": "input_length",
-    "remove_unused_columns": false
+    "remove_unused_columns": false,
+    "report_to": "none",
+    "save_strategy": "epoch"
   },
   "data_collator": {
     "pad_to_multiple_of": 8,

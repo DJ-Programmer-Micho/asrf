@@ -261,6 +261,8 @@ if __name__ == "__main__":
     
     csv_pre = config["dataset"]["preprocessed_data_path_csv"]
     vocab_path = config["dataset"]["vocab_path"]
+    transcript_column = config["dataset"]["transcript_column"]
+
     # Example usage when run directly
     if len(sys.argv) == 1:
         print("Example usage:")
@@ -268,16 +270,17 @@ if __name__ == "__main__":
             
         # Demo with sample data
         generator = KurdishVocabularyGenerator()
+
+        # sample_texts = [
+        #     "سڵاو، چۆنی؟ باشم.",
+        #     "ئەم کتێبە زۆر باشە.",  
+        #     "٤٢ ساڵەم.",
+        #     "کوردستان جوانە.",
+        #     "بەیانی باش.",
+        # ]
         
-        sample_texts = [
-            "سڵاو، چۆنی؟ باشم.",
-            "ئەم کتێبە زۆر باشە.",  
-            "٤٢ ساڵەم.",
-            "کوردستان جوانە.",
-            "بەیانی باش.",
-        ]
-        
-        vocab = generator.create_vocabulary(sample_texts)
+        texts = generator.load_transcripts_from_csv(csv_pre, transcript_column)
+        vocab = generator.create_vocabulary(texts)
         generator.print_vocabulary_stats(vocab)
         
         # Save sample vocab

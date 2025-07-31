@@ -9,21 +9,13 @@ import os
 
 
 def load_training_arguments(config: dict) -> TrainingArguments:
-    """
-    Load Hugging Face TrainingArguments from config.
-
-    Args:
-        config: Dictionary from config.json
-
-    Returns:
-        TrainingArguments object
-    """
     args = config["training"]
     output_dir = config["model"]["output_dir"]
 
     return TrainingArguments(
         output_dir=output_dir,
         evaluation_strategy=args.get("evaluation_strategy", "steps"),
+        save_strategy=args.get("save_strategy", "steps"),  # ✅ Add this line
         learning_rate=args["learning_rate"],
         per_device_train_batch_size=args["per_device_train_batch_size"],
         per_device_eval_batch_size=args["per_device_eval_batch_size"],
@@ -41,7 +33,7 @@ def load_training_arguments(config: dict) -> TrainingArguments:
         dataloader_num_workers=args.get("dataloader_num_workers", 4),
         group_by_length=args.get("group_by_length", True),
         remove_unused_columns=args.get("remove_unused_columns", False),
-        report_to=["wandb"] if "wandb" in config and config["wandb"].get("project") else []
+        report_to=[]
     )
 
 
@@ -60,9 +52,15 @@ def load_data_collator(processor, config: dict):
     return DataCollatorCTCWithPadding(
         processor=processor,
         padding=collator_args.get("padding", True),
-        pad_to_multiple_of=collator_args.get("pad_to_multiple_of", None)
+        # pad_to_multiple_of=collator_args.get("pad_to_multiple_of", None)
     )
 
+    # collator_args = config.get("data_collator", {})
+    # return DataCollatorCTCWithPadding(
+    #     processor=processor,
+    #     padding=collator_args.get("padding", True),
+    #     pad_to_multiple_of=collator_args.get("pad_to_multiple_of", None)
+    # )
 
 if __name__ == "__main__":
     import json

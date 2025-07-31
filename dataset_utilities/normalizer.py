@@ -138,7 +138,8 @@ def normalize_transcript_file(input_file: str, output_file: str) -> None:
 
     print("Normalizing transcripts...")
     df['transcript'] = df['transcript'].apply(normalizer.normalize_text)
-
+    if "English Translation" in df.columns:
+        df = df.drop(columns=["English Translation"])
     df = df[df['transcript'].str.len() > 0]
     df.to_csv(output_file, index=False)
     print(f"Saved {len(df)} normalized transcripts to {output_file}")

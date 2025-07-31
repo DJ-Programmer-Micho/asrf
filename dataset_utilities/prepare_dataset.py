@@ -22,7 +22,7 @@ def load_and_prepare_split(csv_path, sampling_rate, normalizer=None):
         df['transcript'] = df['transcript'].apply(normalizer.normalize_text)
 
     dataset = Dataset.from_pandas(df)
-    dataset = dataset.cast_column("path", Audio(sampling_rate=sampling_rate))
+    # Don't decode audio here; let librosa do it later
     return dataset
 
 

@@ -1,21 +1,21 @@
-path,transcript,English Translation,transcript_length,word_count
-dataset/original_data/audio/sample0091.wav,کات,time,3,1
-dataset/original_data/audio/sample0156.wav,تەنیا گوڵم بناسیایا,,19,3
-dataset/original_data/audio/sample0114.wav,پێنج و چارەک,quarter past 5,12,3
-dataset/original_data/audio/sample0066.wav,سەیارەکەت,Your car,9,1
-dataset/original_data/audio/sample0115.wav,خولەک,minute,5,1
-dataset/original_data/audio/sample0025.wav,نامه,letter,4,1
-dataset/original_data/audio/sample0016.wav,منیش باشم سوپاس,"I'm also good, thanks",15,3
-dataset/original_data/audio/sample0160.wav,کەلە هەموی پەشیمانم,,19,3
-dataset/original_data/audio/sample0068.wav,مامۆستاکەیان,Their teacher,12,1
-dataset/original_data/audio/sample0031.wav,ئاڵا,flag,4,1
-dataset/original_data/audio/sample0070.wav,کتێبێک,a book,6,1
-dataset/original_data/audio/sample0017.wav,خۆشحاڵم بە ناسینت,Nice to meet you,17,3
-dataset/original_data/audio/sample0147.wav,بەسر پێرێ,a two days ago,9,2
-dataset/original_data/audio/sample0067.wav,چاکەتەکەی,His/Her jacket,9,1
-dataset/original_data/audio/sample0069.wav,مراوی یەک,a duck,9,2
-dataset/original_data/audio/sample0010.wav,ئەی تۆ؟,and you?,7,2
-dataset/original_data/audio/sample0020.wav,زۆر سوپاس,Thank you so much,9,2
-dataset/original_data/audio/sample0046.wav,ئاڵاکە,the flag,6,1
-dataset/original_data/audio/sample0116.wav,دەقە,minute,4,1
-dataset/original_data/audio/sample0153.wav,خۆزگە منیشوەک پەپولە,,20,3
+path,transcript,transcript_length,word_count,duration_bin
+/sample0188.wav,ڕۆژگاریشم وەکو شەو بو,21,4,bin_3
+/sample0063.wav,تۆ مامۆستای,11,2,bin_3
+/sample0091.wav,کات,3,1,bin_1
+/sample0133.wav,مانگی پێنج,10,2,bin_2
+/sample0069.wav,مراوی یەک,9,2,bin_2
+/sample0178.wav,ئەو رۆژانەی کە دێ ی بۆ لام,26,7,bin_4
+/sample0148.wav,تەمەن,5,1,bin_1
+/sample0014.wav,من باشم,7,2,bin_2
+/sample0153.wav,خۆزگە منیشوەک پەپولە,20,3,bin_4
+/sample0151.wav,لەگەڵ هەمو هەنگاوێکتا,21,3,bin_4
+/sample0164.wav,بۆکەنارم شە پۆڵ ئەدات,21,4,bin_4
+/sample0052.wav,کتێبەکە,7,1,bin_0
+/sample0059.wav,ێمە,3,1,bin_0
+/sample0121.wav,چرکە,4,1,bin_0
+/sample0089.wav,مانەوە,6,1,bin_1
+/sample0183.wav,ماوەیەکە خۆ دەزانم,18,3,bin_3
+/sample0045.wav,بەتەمەنترین,11,1,bin_2
+/sample0079.wav,جوانە,5,1,bin_1
+/sample0094.wav,کاتژمێر جەنە؟,13,2,bin_3
+/sample0103.wav,حەوت,4,1,bin_0

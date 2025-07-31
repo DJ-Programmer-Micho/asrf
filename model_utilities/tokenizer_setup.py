@@ -60,6 +60,6 @@ if __name__ == "__main__":
     processor = load_processor(vocab_path, sampling_rate)
 
     # Save processor to use later
-    save_path = config["model"]["cache_dir"]
+    save_path = config["model"]["model_process"]
     processor.save_pretrained(save_path)
     print(f"Processor saved to {save_path}")
